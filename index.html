@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>จำแนกโรคข้าวโพด</title>
+
+    <!-- TensorFlow + Teachable Machine -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+
+    <!-- Material Design Lite -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-amber.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+    <!-- HEADER -->
+    <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+            <span class="mdl-layout-title">🌽 จำแนกโรคข้าวโพด</span>
+            <div class="mdl-layout-spacer"></div>
+        </div>
+    </header>
+
+    <!-- DRAWER -->
+    <div class="mdl-layout__drawer">
+        <nav class="mdl-navigation"></nav>
+    </div>
+
+    <!-- CONTENT -->
+    <main class="mdl-layout__content">
+        <div class="page-content">
+
+            <!-- Start -->
+            <div style="text-align:center; margin:16px;">
+                <button
+                    class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored"
+                    onclick="init()">
+                    ▶ Start
+                </button>
+            </div>
+
+            <!-- CAMERA AREA -->
+            <div id="camera-wrapper">
+
+                <div id="webcam-container"></div>
+
+                <!-- ปุ่มสลับกล้อง -->
+                <button id="switchCameraBtn" onclick="switchCamera()">
+                    <span class="material-icons">cameraswitch</span>
+                </button>
+
+            </div>
+
+            <!-- RESULT -->
+            <div id="label-container"></div>
+
+            <!-- UPLOAD -->
+            <div class="upload-box">
+                <button class="upload-rect-btn" onclick="triggerUpload()">
+                    <span class="material-icons">photo_library</span>
+                    เลือกรูปจากเครื่อง
+                </button>
+                <input type="file" id="fileUpload" accept="image/*" hidden>
+            </div>
+
+        </div>
+    </main>
+
+</div>
+
+<!-- App Script -->
+<script src="app.js"></script>
+
+</body>
+</html>
